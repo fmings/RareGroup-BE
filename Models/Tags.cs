@@ -4,7 +4,6 @@ namespace RareGroup_BE.Models;
 public class Tags
 {
   public int Id { get; set; }
-  public int PostId { get; set; }
-  public int TagId { get; set; }
-  public List<Post> Posts { get; set; }
+  public string Label { get; set; }
+  public List<Posts> Posts { get; set; }
 }
