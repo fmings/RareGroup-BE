@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Json;
 using RareGroup_BE;
+using RareGroup_BE.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,5 +45,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+CategoryAPI.Map(app);
+PostAPI.Map(app);
+TagAPI.Map(app);
+UserAPI.Map(app);
 
 app.Run();
