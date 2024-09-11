@@ -12,7 +12,7 @@ using RareGroup_BE;
 namespace RareGroup_BE.Migrations
 {
     [DbContext(typeof(RareGroup_BEDbContext))]
-    [Migration("20240911013358_InitialCreate")]
+    [Migration("20240911234248_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -366,7 +366,7 @@ namespace RareGroup_BE.Migrations
                         .IsRequired();
 
                     b.HasOne("RareGroup_BE.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -374,6 +374,11 @@ namespace RareGroup_BE.Migrations
                     b.Navigation("Categories");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RareGroup_BE.Models.User", b =>
+                {
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }

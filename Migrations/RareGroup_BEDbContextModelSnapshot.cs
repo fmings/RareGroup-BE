@@ -364,7 +364,7 @@ namespace RareGroup_BE.Migrations
                         .IsRequired();
 
                     b.HasOne("RareGroup_BE.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -372,6 +372,11 @@ namespace RareGroup_BE.Migrations
                     b.Navigation("Categories");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RareGroup_BE.Models.User", b =>
+                {
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }
