@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // allows our api endpoints to access the database through Entity Framework Core
-builder.Services.AddNpgsql<RareGroup_BEDbContext>(builder.Configuration["CreekRiverDbConnectionString"]);
+builder.Services.AddNpgsql<RareGroup_BEDbContext>(builder.Configuration["RareGroup_BEDbConnectionString"]);
 
 // Set the JSON serializer options
 builder.Services.Configure<JsonOptions>(options =>
