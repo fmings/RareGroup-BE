@@ -14,6 +14,9 @@ namespace RareGroup_BE.Data
             Email = "britnayg@gmail.com",
             Bio = "The Island Gyal",
             CreatedOn = new DateTime(2022, 10, 6),
+            IsStaff = false,
+            Uid = "",
+            Active = true,
             },
 
             new User
@@ -24,6 +27,9 @@ namespace RareGroup_BE.Data
             Email = "feliciam@gmail.com",
             Bio = "Team Vibes",
             CreatedOn = new DateTime(2023, 5, 9),
+            IsStaff = false,
+            Uid = "",
+            Active = true,
             },
 
             new User
@@ -34,6 +40,9 @@ namespace RareGroup_BE.Data
             Email = "fletcherm@gmail.com",
             Bio = "The Young Manager",
             CreatedOn = new DateTime(2023, 12, 12),
+            IsStaff = false,
+            Uid = "",
+            Active = true,
             },
 
             new User
@@ -44,6 +53,9 @@ namespace RareGroup_BE.Data
             Email = "colburn.zach7@gmail.com",
             Bio = "The Alcohol King",
             CreatedOn = new DateTime(2022, 1, 30),
+            IsStaff = false,
+            Uid = "",
+            Active = true,
             },
 
             new User
@@ -54,6 +66,9 @@ namespace RareGroup_BE.Data
             Email = "odij@gmail.com",
             Bio = "Backend Genius",
             CreatedOn = new DateTime(2024, 4, 13),
+            IsStaff = false,
+            Uid = "",
+            Active = true,
             },
         };
     }
