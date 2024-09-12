@@ -18,5 +18,5 @@ namespace RareGroup_BE.Models;
         public string Uid { get; set; }
         [Required]
         public bool IsStaff { get; set; }
-        List<Post> Posts { get; set; }
+        public List<Post> Posts { get; set; }
     }
