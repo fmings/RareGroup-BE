@@ -18,5 +18,4 @@ public class User
     public string Uid { get; set; }
     [Required]
     public bool IsStaff { get; set; }
-    public List<Post> Posts { get; set; }
 }
