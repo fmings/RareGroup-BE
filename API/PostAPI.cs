@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
+
 namespace RareGroup_BE.API
 {
 	public class PostAPI
@@ -27,6 +29,12 @@ namespace RareGroup_BE.API
                     Posts = user.Posts
 
                 }).SingleOrDefault(user => user.Id == userId));
+            });
+
+            // For testing, Zach you can remove this!
+            app.MapGet("/api/posts", (RareGroup_BEDbContext db) =>
+            {
+                return db.Posts.Include(p => p.Tags);
             });
         }
 	}
