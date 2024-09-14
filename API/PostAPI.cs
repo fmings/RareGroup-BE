@@ -11,7 +11,20 @@ namespace RareGroup_BE.API
 			// GET all Posts
 			app.MapGet("/api/posts", (RareGroup_BEDbContext db) =>
 			{
-				return db.Posts.ToList();
+				return db.Posts.Select(p => new
+                {
+                    Id = p.Id,
+                    UserId = p.UserId,
+                    CategoryId = p.CategoryId,
+                    Title = p.Title,
+                    PublicationDate = p.PublicationDate,
+                    ImageUrl = p.ImageUrl,
+                    Content = p.Content,
+                    Approved = p.Approved,
+                    Categories = p.Categories,
+                    User = p.User,
+                    Tags = p.Tags,
+                });
 			});
 
             // GET Post by ID
