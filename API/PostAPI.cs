@@ -28,12 +28,12 @@ namespace RareGroup_BE.API
 			});
 
             // GET Post by ID
-			app.MapGet("/api/post/{postId}", async (RareGroup_BEDbContext db, int id) =>
+			app.MapGet("/api/post/{postId}", (RareGroup_BEDbContext db, int postId) =>
 			{
-                Post? post = await db.Posts
+                Post post = db.Posts
                 .Include(p => p.Categories)
                 .Include(p => p.Tags)
-                .FirstOrDefaultAsync(p => p.Id == id);
+                .Single(p => p.Id == postId);
 
                 if (post == null)
                 {
