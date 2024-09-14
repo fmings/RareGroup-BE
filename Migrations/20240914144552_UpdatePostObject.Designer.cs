@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RareGroup_BE;
@@ -11,9 +12,10 @@ using RareGroup_BE;
 namespace RareGroup_BE.Migrations
 {
     [DbContext(typeof(RareGroup_BEDbContext))]
-    partial class RareGroup_BEDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240914144552_UpdatePostObject")]
+    partial class UpdatePostObject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
