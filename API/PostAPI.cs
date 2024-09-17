@@ -69,9 +69,9 @@ namespace RareGroup_BE.API
             });
 
             // Edit Post
-            app.MapPut("/post/{postId}", (RareGroup_BEDbContext db, int id, Post updatedPost) =>
+            app.MapPut("/post/{postId}", (RareGroup_BEDbContext db, int postId, Post updatedPost) =>
             {
-                Post postToUpdate = db.Posts.SingleOrDefault(p => p.Id == id);
+                Post postToUpdate = db.Posts.SingleOrDefault(p => p.Id == postId);
 
                 if (postToUpdate == null)
                 {
