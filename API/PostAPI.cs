@@ -97,20 +97,21 @@ namespace RareGroup_BE.API
                     return Results.NotFound("The userId does not exist");
                 }
 
-                return Results.Ok(db.Users.Select(user => new
+                return Results.Ok(db.Posts.Where(post => post.UserId == userId).Select(p => new
                 {
-                    Id = user.Id,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Email = user.Email,
-                    Bio = user.Bio,
-                    CreatedOn = user.CreatedOn,
-                    IsStaff = user.IsStaff,
-                    Uid = user.Uid,
-                    Active = user.Active,
-                    Posts = user.Posts
+                    Id = p.Id,
+                    UserId = p.UserId,
+                    CategoryId = p.CategoryId,
+                    Title = p.Title,
+                    PublicationDate = p.PublicationDate,
+                    ImageUrl = p.ImageUrl,
+                    Content = p.Content,
+                    Approved = p.Approved,
+                    Categories = p.Categories,
+                    User = p.User,
+                    Tags = p.Tags,
 
-                }).SingleOrDefault(user => user.Id == userId));
+                }).ToList());
             });
 
         }
