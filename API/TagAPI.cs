@@ -15,16 +15,20 @@ namespace RareGroup_BE.API
             });
 
             // Add A Tag to A Post
-            app.MapPost("/api/post/{postId}/tag/{tagId}", (RareGroup_BEDbContext db, int postId, int tagId) =>
+            app.MapPost("/api/post/{postId}/tags", (RareGroup_BEDbContext db, int postId, List<int> tagIds) =>
             {
+                List<Tag> tagsToAdd = db.Tags.Where(t => tagIds.Contains(t.Id)).ToList();
+
                 Post post = db.Posts.Include(p => p.Tags).FirstOrDefault(p => p.Id == postId);
 
-                Tag tagToAdd = db.Tags.SingleOrDefault(t => t.Id == tagId);
+                foreach (var tag in tagsToAdd)
+                {
+                    post.Tags.Add(tag);
+                }
 
-                post.Tags.Add(tagToAdd);
                 db.SaveChanges();
 
-                return Results.Created($"/api/post/{post.Id}/tag/{tagToAdd.Id}", tagToAdd);
+                return Results.Created($"/api/post/{post.Id}/tags", tagsToAdd);
             });
 
             // Delete A Tag From a Post
